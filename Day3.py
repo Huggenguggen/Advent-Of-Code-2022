@@ -16,21 +16,19 @@ def firstStar():
 
 def secondStar():
   prioritySum = 0
-  lines = [line for line in stdin][:3]
-  print(lines)
-  for line in stdin:
-    if count < 3:
-      lines[count] = line
-      count += 1
-    else:
-      count = 0
-      common_char = ''.join(set(lines[0]).intersection(set(lines[1]).intersection(lines[2])))
+  while True:
+    try:
+      line1 = input()
+      line2 = input()
+      line3 = input()
+      common_char = ''.join(set(line1).intersection(set(line2).intersection(line3)))
       common_char = common_char.strip()
       if (common_char.islower()):
         prioritySum += (ord(common_char) - 96)
       else:
         prioritySum += (ord(common_char) - 38)
-      
+    except EOFError:
+      break
   print(prioritySum)
 
 if __name__ == "__main__":
